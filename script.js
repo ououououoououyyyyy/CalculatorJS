@@ -22,5 +22,11 @@ plusminus.addEventListener("click",function(){
 })
 
 engineer.addEventListener("click",function () {
-    document.createElement("input")
+    document.querySelector(".buttonsEngineer").style.display= "flex";
+    document.querySelector("#display").style.width = "998px";
+})
+
+basic.addEventListener("click",function(){
+    document.querySelector(".buttonsEngineer").style.display = "none";
+    document.querySelector("#display").style.width = "398px";
 })
