@@ -33,6 +33,21 @@
     border: 1px solid black;
 }
 
+.buttonsProg > input[type=button]  {
+    font-size: 20px;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    border: 1px solid black;
+}
+
+.buttonsProg{
+    display: flex;
+    width: 700px;
+    flex-wrap: wrap;
+    display: none;
+}
+
 #zero{
     flex-grow: 2;
 }
@@ -45,6 +60,7 @@
     color: white;
     text-align: right;
     padding-top: 50px;
+    border: 1px solid black;
 }
 
 #calculator{
@@ -64,8 +80,28 @@
 
 .orange{
     background-color: orange;
+    font-size: 20px;
 }
 
 .grey{
     background-color: grey;
+}
+
+
+.black{
+    background-color: dimgray;
+}
+
+.equallyEng{
+    flex-basis: 200px;
+
+}
+
+.byteflip{
+    flex-basis: 200px;
+}
+
+
+.wordflip{
+    flex-basis: 200px;
 }
