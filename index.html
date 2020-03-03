@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>CalculatorJS</title>
+</head>
+<body>
+    <footer>
+        <div class="selectType">
+            <input type="button" value="Обычный" id="basic">
+            <input type="button" value="Инжинерный" id="engineer">
+            <input type="button" value="Программный" id="prog">
+        </div>
+    </footer>
+    <div id="calculator">
+        <input type="text" readonly id="display">
+        <div class="buttonsEngineer">
+            <input type="button" value="(" class="buttNum grey">
+            <input type="button" value="(" class="buttNum grey" hidden>
+            <input type="button" value=")" class="buttNum grey" hidden>
+            <input type="button" value="" class="grey" hidden>
+            <input type="button" value="" class="grey" hidden>
+            <input type="button" value="" class="grey" hidden>
+            <input type="button" value="" class="grey" hidden>
+        </div>
+        <div class="buttonsBasic">
+            <input type="button" value="AC" id="AC" class="grey">
+            <input type="button" value="+/-" id="plusminus" class="grey">
+            <input type="button" value="%" id="percent" class="grey">
+            <input type="button" value="/" class="buttNum orange">
+            <input type="button" value="7" class="buttNum">
+            <input type="button" value="8" class="buttNum">
+            <input type="button" value="9" class="buttNum">
+            <input type="button" value="*" class="buttNum orange">
+            <input type="button" value="4" class="buttNum">
+            <input type="button" value="5" class="buttNum">
+            <input type="button" value="6" class="buttNum">
+            <input type="button" value="-" class="buttNum orange">
+            <input type="button" value="1" class="buttNum">
+            <input type="button" value="2" class="buttNum">
+            <input type="button" value="3" class="buttNum">
+            <input type="button" value="+" class="buttNum orange">
+            <input type="button" value="0" id="zero">
+            <input type="button" value="." id="dot">
+            <input type="button" value="=" id="equally" class="orange">
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>

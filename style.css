@@ -1,0 +1,50 @@
+.buttonsBasic{
+    display: flex;
+    flex-wrap: wrap;
+    width: 400px;
+    background-color: black;
+    justify-content: space-around;
+}
+
+
+.orange{
+    background-color: orange;
+}
+
+.grey{
+    background-color: grey;
+}
+
+.buttonsBasic > input[type=button] {
+    font-size: 20px;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    border: none;
+}
+
+#zero{
+    width: 200px;
+}
+
+#display{
+    width: 398px;
+    height: 150px;
+    background-color: grey;
+    font-size: 50px;
+    color: white;
+    text-align: right;
+}
+
+#calculator{
+    display: inline-block;
+}
+
+.selectType > input[type=button] {
+    font-size: 15px;
+    width: 130px;
+    height: 50px;
+    text-align: center;
+    border: none;
+    margin-bottom: 10px;
+}
