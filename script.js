@@ -22,17 +22,16 @@ plusminus.addEventListener("click",function(){
 })
 
 engineer.addEventListener("click",function () {
-    document.querySelector(".buttonsEngineer").style.display= "flex";
-    document.querySelector("#display").style.width = "998px";
-    document.querySelector(".buttonsProg").style.display = "none";
-    document.querySelector(".buttonsBasic").style.display = "flex"
+    document.querySelector("#buttonsEngineer").style.display= "flex";
+    document.querySelector("#calculator").style.maxWidth = "1000px"
+    document.querySelector("#buttonsProg").style.display = "none";
+    document.querySelector("#buttonsBasic").style.display = "flex"
 })
 
 basic.addEventListener("click",function(){
-    document.querySelector(".buttonsEngineer").style.display = "none";
-    document.querySelector("#display").style.width = "398px";
-    document.querySelector(".buttonsProg").style.display = "none";
-    document.querySelector(".buttonsBasic").style.display = "flex"
+    document.querySelector("#buttonsEngineer").style.display = "none";
+    document.querySelector("#buttonsBasic").style.display = "flex"
+    document.querySelector("#calculator").style.maxWidth = "400px"
 })
 
 prog.addEventListener("click",function(){
