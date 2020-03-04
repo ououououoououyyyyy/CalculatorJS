@@ -59,6 +59,23 @@ mr.addEventListener("click",function(){
     display.value = memory;
 })
 
+powByTwo.addEventListener("click",function(){
+    display.value = eval(display.value * display.value);
+})
+
+powByThree.addEventListener("click",function(){
+    display.value = eval(display.value * display.value * display.value);
+})
+
+fac.addEventListener("click", function(){
+    equally.click()
+    display.value = factorial(display.value)
+})
+
+rand.addEventListener("click",function(){
+    display.value =+ Math.round(Math.random()*100  )
+})
+
 basic.addEventListener("click",function(){
     document.querySelector("#buttonsBasic").style.display = "flex";
     document.querySelector("#buttonsEngineer").style.display = "none";
@@ -83,3 +100,13 @@ prog.addEventListener("click",function(){
 document.addEventListener("DOMContentLoaded", function(){
     engineer.click();
 })
+
+
+
+function factorial(n) {
+    n = eval(n);
+    let fac=1;
+    for (let i = n; i>0; i--)
+        fac *= i;
+    return fac;
+}

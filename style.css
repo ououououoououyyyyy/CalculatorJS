@@ -10,14 +10,15 @@
     display: flex;
     flex-flow: row wrap;
     width: 400px;
-    height: 605px;
+    height: 635px;
     border: 1px solid red;
     margin-right: auto;
     margin-left: auto;
 }
 
 #display{
-    flex: 1 0 auto;
+    order: 1;
+    flex: 1 0 100%;
     height: auto;
     font-size: 30px;
     padding-top: 100px;
@@ -39,16 +40,21 @@ input[type=button]{
 }
 
 #buttonsBasic{
+    width: 400px;
+    order: 3;
     display: flex;
     flex-wrap: wrap;
 }
 
 #buttonsEngineer{
+    width: 600px;
+    order: 2;
     display: none;
     flex-wrap: wrap;
 }
 
 #buttonsProg{
+    order: 4;
     display: none;
     flex-wrap: wrap;
 }
