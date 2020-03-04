@@ -1,107 +1,88 @@
-.buttons{
-    display: flex;
-}
-
-.buttonsEngineer{
-    display: flex;
-    width: 600px;
-    flex-wrap: wrap;
-    display: none;
-}
-
-.buttonsBasic{
-    display: flex;
-    flex-wrap: wrap;
-    width: 400px;
-    background-color: black;
-    justify-content: space-around;
-}
-
-.buttonsEngineer > input[type=button]  {
-    font-size: 20px;
-    width: 100px;
-    height: 100px;
-    text-align: center;
-    border: 1px solid black;
-}
-
-.buttonsBasic > input[type=button]  {
-    font-size: 20px;
-    width: 100px;
-    height: 100px;
-    text-align: center;
-    border: 1px solid black;
-}
-
-.buttonsProg > input[type=button]  {
-    font-size: 20px;
-    width: 100px;
-    height: 100px;
-    text-align: center;
-    border: 1px solid black;
-}
-
-.buttonsProg{
-    display: flex;
-    width: 700px;
-    flex-wrap: wrap;
-    display: none;
-}
-
-#zero{
-    flex-grow: 2;
-}
-
-#display{
-    width: 398px;
-    height: auto;
-    background-color: grey;
-    font-size: 50px;
-    color: white;
-    text-align: right;
-    padding-top: 50px;
-    border: 1px solid black;
+#selectType > input[type=button]{
+    width: 130px;
+    height: 50px;
+    font-size: 15px;
+    margin-bottom: 10px;
+    background-color: #393939;
 }
 
 #calculator{
-    display: inline-block;
+    display: flex;
+    flex-flow: row wrap;
+    width: 400px;
+    height: 635px;
+    border: 1px solid red;
+    margin-right: auto;
+    margin-left: auto;
 }
 
-.selectType > input[type=button] {
-    font-size: 15px;
-    width: 130px;
-    height: 50px;
-    text-align: center;
+#display{
+    order: 1;
+    flex: 1 0 100%;
+    height: auto;
+    font-size: 30px;
+    padding-top: 100px;
+    background-color: #242424;
+    text-align: right;
     border: none;
-    margin-bottom: 10px;
+    color: #e7e7e7;
 }
 
 
 
-.orange{
-    background-color: orange;
+input[type=button]{
+    width: 100px;
+    height: 100px;
     font-size: 20px;
+    border: none;
+    color: #e7e7e7;  
+    border: 0.5px solid #242424;
 }
 
-.grey{
-    background-color: grey;
+#buttonsBasic{
+    width: 400px;
+    order: 3;
+    display: flex;
+    flex-wrap: wrap;
 }
 
-
-.black{
-    background-color: dimgray;
+#buttonsEngineer{
+    width: 600px;
+    order: 2;
+    display: none;
+    flex-wrap: wrap;
 }
 
-.equallyEng{
-    flex-basis: 200px;
+#buttonsProg{
+    order: 4;
+    display: none;
+    flex-wrap: wrap;
+}
 
+#zero{
+    flex-grow: 1;
 }
 
 .byteflip{
     flex-basis: 200px;
 }
 
-
 .wordflip{
     flex-basis: 200px;
+}
+
+.equallyProg{
+    flex-basis: 200px;
+}
+
+.darkGrey{
+    background-color: #393939;
+}
+
+.yellow{
+    background-color: #ff9f0c;
+}
+
+.grey{
+    background-color: #5a5a5a;
 }

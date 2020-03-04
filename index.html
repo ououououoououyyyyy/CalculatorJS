@@ -10,111 +10,106 @@
 </head>
 
 <body>
-    <footer>
-        <div class="selectType">
-            <input type="button" value="Обычный" id="basic">
-            <input type="button" value="Инжинерный" id="engineer">
-            <input type="button" value="Программный" id="prog">
-        </div>
-    </footer>
+    <div id="selectType">
+        <input type="button" value="Обычный" id="basic">
+        <input type="button" value="Инженерный" id="engineer">
+        <input type="button" value="Программный" id="prog">
+    </div>
     <div id="calculator">
         <input type="text" readonly id="display">
-        <div class="buttons">
-            <div class="buttonsEngineer">
-                <input type="button" value="(" class="buttNum grey">
-                <input type="button" value=")" class="buttNum grey">
-                <input type="button" value="mc" class="buttNum grey">
-                <input type="button" value="m+" class="grey">
-                <input type="button" value="m-" class="grey">
-                <input type="button" value="mr" class="grey">
-                <input type="button" value="2an" class="grey">
-                <input type="button" value="x^2" class="grey">
-                <input type="button" value="x^3" class="grey">
-                <input type="button" value="x^y" class="grey">
-                <input type="button" value="e^x" class="grey">
-                <input type="button" value="10^x" class="grey">
-                <input type="button" value="1/x" class="grey">
-                <input type="button" value="sqrt" class="grey">
-                <input type="button" value="3sqrt" class="grey">
-                <input type="button" value="ysqt" class="grey">
-                <input type="button" value="ln" class="grey">
-                <input type="button" value="log" class="grey">
-                <input type="button" value="x!" class="grey">
-                <input type="button" value="sin" class="grey">
-                <input type="button" value="cos" class="grey">
-                <input type="button" value="tan" class="grey">
-                <input type="button" value="e" class="grey">
-                <input type="button" value="EE" class="grey">
-                <input type="button" value="Rad" class="grey">
-                <input type="button" value="sinh" class="grey">
-                <input type="button" value="cosh" class="grey">
-                <input type="button" value="tanh" class="grey">
-                <input type="button" value="pi" class="grey">
-                <input type="button" value="Rand" class="grey">
-
-            </div>
-            <div class="buttonsBasic">
-                <input type="button" value="AC" id="AC" class="grey">
-                <input type="button" value="+/-" id="plusminus" class="grey">
-                <input type="button" value="%" id="percent" class="grey">
-                <input type="button" value="/" class="buttNum orange">
-                <input type="button" value="7" class="buttNum">
-                <input type="button" value="8" class="buttNum">
-                <input type="button" value="9" class="buttNum">
-                <input type="button" value="*" class="buttNum orange">
-                <input type="button" value="4" class="buttNum">
-                <input type="button" value="5" class="buttNum">
-                <input type="button" value="6" class="buttNum">
-                <input type="button" value="-" class="buttNum orange">
-                <input type="button" value="1" class="buttNum">
-                <input type="button" value="2" class="buttNum">
-                <input type="button" value="3" class="buttNum">
-                <input type="button" value="+" class="buttNum orange">
-                <input type="button" value="0" id="zero">
-                <input type="button" value="." id="dot">
-                <input type="button" value="=" id="equally" class="orange">
-            </div>
-            <div class="buttonsProg">
-                <input type="button" value="AND" class="black">
-                <input type="button" value="OR" class="black">
-                <input type="button" value="D" class="grey">
-                <input type="button" value="E" class="grey">
-                <input type="button" value="F" class="grey">
-                <input type="button" value="AC" class="black AC">
-                <input type="button" value="C" class="black C">
-                <input type="button" value="NOR" class="black">
-                <input type="button" value="XOR" class="black">
-                <input type="button" value="A" class="grey">
-                <input type="button" value="B" class="grey">
-                <input type="button" value="C" class="grey">
-                <input type="button" value="RoL" class="black">
-                <input type="button" value="RoR" class="black">
-                <input type="button" value="<<" class="black">
-                <input type="button" value=">>" class="black">
-                <input type="button" value="7" class="grey">
-                <input type="button" value="8" class="grey">
-                <input type="button" value="9" class="grey">
-                <input type="button" value="2's" class="black">
-                <input type="button" value="1's" class="black">
-                <input type="button" value="X<<Y" class="black">
-                <input type="button" value="X>>Y" class="black">
-                <input type="button" value="4" class="grey">
-                <input type="button" value="5" class="grey">
-                <input type="button" value="6" class="grey">
-                <input type="button" value="/" class="orange">
-                <input type="button" value="-" class="orange">
-                <input type="button" value="byteflip" class="grey byteflip">
-                <input type="button" value="1" class="grey">
-                <input type="button" value="2" class="grey">
-                <input type="button" value="3" class="grey">
-                <input type="button" value="*" class="orange">
-                <input type="button" value="+" class="orange">
-                <input type="button" value="word flip" class="grey wordflip">
-                <input type="button" value="FF" class="grey">
-                <input type="button" value="0" class="grey buttNum">
-                <input type="button" value="00" class="grey buttNum">
-                <input type="button" value="=" class="orange equallyEng">
-            </div>
+        <div id="buttonsEngineer">
+            <input type="button" value="(" class="buttNum darkGrey">
+            <input type="button" value=")" class="buttNum darkGrey">
+            <input type="button" value="mc" id="mc" class="darkGrey">
+            <input type="button" value="m+" id="mplus" class="darkGrey">
+            <input type="button" value="m-" id="mminus" class="darkGrey">
+            <input type="button" value="mr" id="mr" class="darkGrey">
+            <input type="button" value="2an" class="darkGrey">
+            <input type="button" value="x^2" id="powByTwo" class="darkGrey">
+            <input type="button" value="x^3" id="powByThree" class="darkGrey">
+            <input type="button" value="^" class="darkGrey buttNum">
+            <input type="button" value="e^x" class="darkGrey">
+            <input type="button" value="10^x" class="darkGrey">
+            <input type="button" value="1/x" class="darkGrey">
+            <input type="button" value="sqrt" class="darkGrey">
+            <input type="button" value="3sqrt" class="darkGrey">
+            <input type="button" value="ysqt" class="darkGrey">
+            <input type="button" value="ln" class="darkGrey">
+            <input type="button" value="log" class="darkGrey">
+            <input type="button" value="x!" id="fac" class="darkGrey">
+            <input type="button" value="sin" class="darkGrey">
+            <input type="button" value="cos" class="darkGrey">
+            <input type="button" value="tan" class="darkGrey">
+            <input type="button" value="e" class="darkGrey">
+            <input type="button" value="EE" class="darkGrey">
+            <input type="button" value="Rad" class="darkGrey">
+            <input type="button" value="sinh" class="darkGrey">
+            <input type="button" value="cosh" class="darkGrey">
+            <input type="button" value="tanh" class="darkGrey">
+            <input type="button" value="pi" class="darkGrey">
+            <input type="button" value="Rand" id="rand" class="darkGrey">
+        </div>
+        <div id="buttonsBasic">
+            <input type="button" value="AC" id="AC" class="darkGrey">
+            <input type="button" value="+/-" id="plusminus" class="darkGrey">
+            <input type="button" value="%" id="percent" class="darkGrey">
+            <input type="button" value="/" class="buttNum yellow">
+            <input type="button" value="7" class="buttNum grey">
+            <input type="button" value="8" class="buttNum grey">
+            <input type="button" value="9" class="buttNum grey">
+            <input type="button" value="*" class="buttNum yellow">
+            <input type="button" value="4" class="buttNum grey">
+            <input type="button" value="5" class="buttNum grey">
+            <input type="button" value="6" class="buttNum grey">
+            <input type="button" value="-" class="buttNum yellow">
+            <input type="button" value="1" class="buttNum grey">
+            <input type="button" value="2" class="buttNum grey">
+            <input type="button" value="3" class="buttNum grey">
+            <input type="button" value="+" class="buttNum yellow">
+            <input type="button" value="0" id="zero" class="grey buttNum">
+            <input type="button" value="." id="point" class="grey">
+            <input type="button" value="=" id="equally" class="yellow">
+        </div>
+        <div id="buttonsProg">
+            <input type="button" value="AND" class="darkGrey">
+            <input type="button" value="OR" class="darkGrey">
+            <input type="button" value="D" class="grey">
+            <input type="button" value="E" class="grey">
+            <input type="button" value="F" class="grey">
+            <input type="button" value="AC" class="darkGrey AC">
+            <input type="button" value="C" class="darkGrey C">
+            <input type="button" value="NOR" class="darkGrey">
+            <input type="button" value="XOR" class="darkGrey">
+            <input type="button" value="A" class="grey">
+            <input type="button" value="B" class="grey">
+            <input type="button" value="C" class="grey">
+            <input type="button" value="RoL" class="darkGrey">
+            <input type="button" value="RoR" class="darkGrey">
+            <input type="button" value="<<" class="darkGrey">
+            <input type="button" value=">>" class="darkGrey">
+            <input type="button" value="7" class="grey">
+            <input type="button" value="8" class="grey">
+            <input type="button" value="9" class="grey">
+            <input type="button" value="2's" class="darkGrey">
+            <input type="button" value="1's" class="darkGrey">
+            <input type="button" value="X<<Y" class="darkGrey">
+            <input type="button" value="X>>Y" class="darkGrey">
+            <input type="button" value="4" class="grey">
+            <input type="button" value="5" class="grey">
+            <input type="button" value="6" class="grey">
+            <input type="button" value="/" class="yellow">
+            <input type="button" value="-" class="yellow">
+            <input type="button" value="byteflip" class="darkGrey byteflip">
+            <input type="button" value="1" class="grey">
+            <input type="button" value="2" class="grey">
+            <input type="button" value="3" class="grey">
+            <input type="button" value="*" class="yellow">
+            <input type="button" value="+" class="yellow">
+            <input type="button" value="word flip" class="darkGrey wordflip">
+            <input type="button" value="FF" class="grey">
+            <input type="button" value="0" class="grey buttNum">
+            <input type="button" value="00" class="grey buttNum">
+            <input type="button" value="=" class="yellow equallyProg">
         </div>
     </div>
     <script src="./script.js"></script>
