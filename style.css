@@ -9,17 +9,18 @@
 #calculator{
     display: flex;
     flex-flow: row wrap;
-    max-width: 1000px;
-    width: auto;
+    width: 400px;
     height: 605px;
     border: 1px solid red;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 #display{
     flex: 1 0 auto;
     height: auto;
     font-size: 30px;
-    padding-top: 70px;
+    padding-top: 100px;
     background-color: #242424;
     text-align: right;
     border: none;
@@ -38,15 +39,34 @@ input[type=button]{
 }
 
 #buttonsBasic{
+    display: flex;
     flex-wrap: wrap;
 }
 
 #buttonsEngineer{
+    display: none;
+    flex-wrap: wrap;
+}
+
+#buttonsProg{
+    display: none;
     flex-wrap: wrap;
 }
 
 #zero{
     flex-grow: 1;
+}
+
+.byteflip{
+    flex-basis: 200px;
+}
+
+.wordflip{
+    flex-basis: 200px;
+}
+
+.equallyProg{
+    flex-basis: 200px;
 }
 
 .darkGrey{
