@@ -1,4 +1,5 @@
 let newResult = false;
+let memory = '';
 
 function render(layout) {
     const calculator = createCalc(layout);
@@ -68,6 +69,14 @@ function plusminus() {
     }
 }
 
+
+function point(){
+    if (display.value.length == 0) {
+        display.value = "0";
+    }
+    display.value = display.value + "."
+}
+
 function equally() {
     try {
         display.value = eval(display.value);
@@ -81,6 +90,32 @@ function equally() {
 function percent() {
     equally()
     display.value = display.value / 100;
+}
+
+function mc() {
+    memory = "";
+}
+
+function mplus() {
+    if (memory.length == 0) {
+        memory = display.value;
+    } else {
+        equally();
+        memory = (+display.value + +memory).toString();
+    }
+}
+
+function mminus () {
+    if (memory.length == 0) {
+        memory = display.value;
+    } else {
+        equally();
+        memory = (+display.value - +memory).toString();
+    }
+}
+
+function mr() {
+    display.value = memory;
 }
 
 function empty(){
@@ -186,7 +221,7 @@ const layoutBasic = [
         {
             type: 'num',
             title: '.',
-            handler: input,
+            handler: point,
         },
         {
             type: 'operator',
@@ -211,22 +246,22 @@ const layoutEng = [
         {
             type: 'func',
             title: 'mc',
-            handler: empty,
+            handler: mc,
         },
         {
             type: 'func',
             title: 'm+',
-            handler: empty,
+            handler: mplus,
         },
         {
             type: 'func',
             title: 'm-',
-            handler: empty,
+            handler: mminus,
         },
         {
             type: 'func',
             title: 'mr',
-            handler: empty,
+            handler: mr ,
         },
         {
             type: 'func',
@@ -445,7 +480,7 @@ const layoutEng = [
         {
             type: 'num',
             title: '.',
-            handler: input,
+            handler: point,
         },
         {
             type: 'operator',
