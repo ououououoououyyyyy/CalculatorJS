@@ -1,24 +1,4 @@
-#selectType > input[type=button]{
-    width: 130px;
-    height: 50px;
-    font-size: 15px;
-    margin-bottom: 10px;
-    background-color: #393939;
-}
-
-
-#calculator{
-    display: flex;
-    flex-flow: row wrap;
-    width: 400px;
-    height: 635px;
-    border: 1px solid red;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-.display{
-    order: 1;
+#display{
     flex: 1 0 100%;
     height: auto;
     font-size: 30px;
@@ -29,51 +9,19 @@
     color: #e7e7e7;
 }
 
+#calculator{
+    display: flex;
+    flex-flow: row wrap;
+}
+
 
 
 input[type=button]{
     width: 100px;
     height: 100px;
-    font-size: 20px;
-    border: none;
-    color: black;  
+    font-size: 25px;
+    color: white;  
     border: 0.5px solid #242424;
-}
-
-#buttonsBasic{
-    width: 400px;
-    order: 3;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-#buttonsEngineer{
-    width: 600px;
-    order: 2;
-    display: none;
-    flex-wrap: wrap;
-}
-
-#buttonsProg{
-    order: 4;
-    display: none;
-    flex-wrap: wrap;
-}
-
-.zero{
-    flex: 1 0 200px;
-}
-
-.byteflip{
-    flex-basis: 200px;
-}
-
-.wordflip{
-    flex-basis: 200px;
-}
-
-.equallyProg{
-    flex-basis: 200px;
 }
 
 .func{
@@ -84,6 +32,10 @@ input[type=button]{
     background-color: #ff9f0c;
 }
 
-.number{
+.num{
     background-color: #5a5a5a;
+}
+
+.x2{
+    flex: 1 0 200px;
 }
