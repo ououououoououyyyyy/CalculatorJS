@@ -6,6 +6,7 @@
     background-color: #393939;
 }
 
+
 #calculator{
     display: flex;
     flex-flow: row wrap;
@@ -16,7 +17,7 @@
     margin-left: auto;
 }
 
-#display{
+.display{
     order: 1;
     flex: 1 0 100%;
     height: auto;
@@ -35,7 +36,7 @@ input[type=button]{
     height: 100px;
     font-size: 20px;
     border: none;
-    color: #e7e7e7;  
+    color: black;  
     border: 0.5px solid #242424;
 }
 
@@ -59,8 +60,8 @@ input[type=button]{
     flex-wrap: wrap;
 }
 
-#zero{
-    flex-grow: 1;
+.zero{
+    flex: 1 0 200px;
 }
 
 .byteflip{
@@ -75,14 +76,14 @@ input[type=button]{
     flex-basis: 200px;
 }
 
-.darkGrey{
+.func{
     background-color: #393939;
 }
 
-.yellow{
+.operator{
     background-color: #ff9f0c;
 }
 
-.grey{
+.number{
     background-color: #5a5a5a;
 }
