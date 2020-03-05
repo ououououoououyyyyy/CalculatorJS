@@ -1,46 +1,135 @@
+let newResult = false;
+
+function render(layout) {
+    const calculator = createCalc(layout);
+    layout.forEach(column => {
+        column.forEach(row => {
+            const tempButt = document.createElement('input');
+            tempButt.setAttribute('type', 'button');
+            tempButt.setAttribute('class', row.type);
+            tempButt.setAttribute('value', row.title);
+            tempButt.addEventListener('click', row.handler);
+            calculator.appendChild(tempButt);
+        })
+    });
+    document.querySelector('body').appendChild(calculator);
+}
+
+function createCalc(layout) {
+    const calculator = document.createElement('div')
+    calculator.setAttribute('id', 'calculator')
+    calculator.appendChild(createDisplay());
+    calculator.style.maxWidth = layout[0].length + '00px';
+    calculator.style.height = layout.length + parseInt(calculator.style.height) + 'px';
+    return calculator;
+}
+
+function createDisplay() {
+    const display = document.createElement('input');
+    display.setAttribute('id', 'display');
+    display.readOnly = true;
+    return display;
+}
+
+function selectCalc(e) {
+    if (document.querySelector('#calculator') != null) {
+        document.querySelector('#calculator').remove();
+    }
+    if (e.target.id === 'basic') {
+        render(layoutBasic);
+    } else if (e.target.id === 'engineer') {
+        render(layoutEng)
+    } else {
+
+    }
+}
+
+selectType.addEventListener('click', selectCalc);
+
+//render(layoutBasic);
+
+function input() {
+    if (newResult && this.className.lastIndexOf('operator') == -1) {
+        display.value = ''
+        newResult = false;
+    } else {
+        newResult = false;
+    }
+    display.value += this.value;
+}
+
+function AC() {
+    display.value = '';
+}
+
+function plusminus() {
+    if (display.value === "") {
+        display.value = "-"
+    }
+}
+
+function equally() {
+    try {
+        display.value = eval(display.value);
+    } catch (error) {
+        console.log("Input wrong equation");
+    } finally {
+        newResult = true;
+    }
+}
+
+function percent() {
+    equally()
+    display.value = display.value / 100;
+}
+
+function empty(){
+
+}
+
 const layoutBasic = [
     [
         {
             type: 'func',
             title: 'AC',
-            handler: '',
+            handler: AC,
         },
         {
             type: 'func',
             title: '+/-',
-            handler: '',
+            handler: plusminus,
         },
         {
             type: 'func',
             title: '%',
-            handler: '',
+            handler: percent,
         },
         {
             type: 'operator',
             title: '/',
-            handler: '',
+            handler: input,
         }
     ],
     [
         {
             type: 'num',
             title: '7',
-            handler: '',
+            handler: input,
         },
         {
             type: 'num',
             title: '8',
-            handler: '',
+            handler: input,
         },
         {
             type: 'num',
             title: '9',
-            handler: '',
+            handler: input,
         },
         {
             type: 'operator',
             title: '*',
-            handler: '',
+            handler: input,
         }
 
     ],
@@ -48,61 +137,61 @@ const layoutBasic = [
         {
             type: 'num',
             title: '4',
-            handler: '',
+            handler: input,
         },
         {
             type: 'num',
             title: '5',
-            handler: '',
+            handler: input,
         },
         {
             type: 'num',
             title: '6',
-            handler: '',
+            handler: input,
         },
         {
             type: 'operator',
             title: '-',
-            handler: '',
+            handler: input,
         }
     ],
     [
         {
             type: 'num',
             title: '1',
-            handler: '',
+            handler: input,
         },
         {
             type: 'num',
             title: '2',
-            handler: '',
+            handler: input,
         },
         {
             type: 'num',
             title: '3',
-            handler: '',
+            handler: input,
         },
         {
             type: 'operator',
             title: '+',
-            handler: '',
+            handler: input,
         }
     ],
     [
         {
-            type: 'num zero',
+            type: 'num x2',
             title: '0',
-            handler: '',
+            handler: input,
         },
         {
             type: 'num',
             title: '.',
-            handler: '',
+            handler: input,
         },
         {
             type: 'operator',
             title: '=',
-            handler: '',
+            handler: equally,
         },
     ]
 ]
@@ -112,104 +201,104 @@ const layoutEng = [
         {
             type: 'func',
             title: '(',
-            handler: '',
+            handler: input,
         },
         {
             type: 'func',
             title: ')',
-            handler: '',
+            handler: input,
         },
         {
             type: 'func',
             title: 'mc',
-            handler: '',
+            handler: empty,
         },
         {
             type: 'func',
             title: 'm+',
-            handler: '',
+            handler: empty,
         },
         {
             type: 'func',
             title: 'm-',
-            handler: '',
+            handler: empty,
         },
         {
             type: 'func',
             title: 'mr',
-            handler: '',
+            handler: empty,
         },
         {
             type: 'func',
             title: 'AC',
-            handler: '',
+            handler: AC,
         },
         {
             type: 'func',
             title: '+/-',
-            handler: '',
+            handler: plusminus,
         },
         {
             type: 'func',
             title: '%',
-            handler: '',
+            handler: percent,
         },
         {
             type: 'operator',
             title: '/',
-            handler: '',
+            handler: input,
         }
     ],
     [
         {
             type: 'func',
             title: '2an',
-            handler: '',
+            handler: empty,
         },
         {
             type: 'func',
             title: 'x^2',
-            handler: '',
+            handler: empty,
         },
         {
             type: 'func',
             title: 'x^3',
-            handler: '',
+            handler: empty,
         },
         {
             type: 'func',
             title: '^',
-            handler: '',
+            handler: empty,
         },
         {
             type: 'func',
             title: 'e^x',
-            handler: '',
+            handler: empty,
         },
         {
             type: 'func',
             title: '10^X',
-            handler: '',
+            handler: empty,
         },
         {
             type: 'num',
             title: '7',
-            handler: '',
+            handler: input,
         },
         {
             type: 'num',
             title: '8',
-            handler: '',
+            handler: input,
         },
         {
             type: 'num',
             title: '9',
-            handler: '',
+            handler: input,
         },
         {
             type: 'operator',
             title: '*',
-            handler: '',
+            handler: input,
         }
 
     ],
@@ -217,183 +306,153 @@ const layoutEng = [
         {
             type: 'func',
             title: '1/x',
-            handler: '',
+            handler: empty,
         },
         {
             type: 'func',
             title: 'sqrt',
-            handler: '',
+            handler: empty,
         },
         {
             type: 'func',
             title: '3sqrt',
-            handler: '',
+            handler: empty,
         },
         {
             type: 'func',
             title: 'ysqrt',
-            handler: '',
+            handler: empty,
         },
         {
             type: 'func',
             title: 'ln',
-            handler: '',
+            handler: empty,
         },
         {
             type: 'func',
             title: 'log',
-            handler: '',
+            handler: empty,
         },
         {
             type: 'num',
             title: '4',
-            handler: '',
+            handler: input,
         },
         {
             type: 'num',
             title: '5',
-            handler: '',
+            handler: input,
         },
         {
             type: 'num',
             title: '6',
-            handler: '',
+            handler: input,
         },
         {
             type: 'operator',
             title: '-',
-            handler: '',
+            handler: input,
         }
     ],
     [
         {
             type: 'func',
             title: 'x!',
-            handler: '',
+            handler: empty,
         },
         {
             type: 'func',
             title: 'sin',
-            handler: '',
+            handler: empty,
         },
         {
             type: 'func',
             title: 'cos',
-            handler: '',
+            handler: empty,
         },
         {
             type: 'func',
             title: 'tan',
-            handler: '',
+            handler: empty,
         },
         {
             type: 'func',
             title: 'e',
-            handler: '',
+            handler: empty,
         },
         {
             type: 'func',
             title: 'EE',
-            handler: '',
+            handler: empty,
         },
         {
             type: 'num',
             title: '1',
-            handler: '',
+            handler: input,
         },
         {
             type: 'num',
             title: '2',
-            handler: '',
+            handler: input,
         },
         {
             type: 'num',
             title: '3',
-            handler: '',
+            handler: input,
         },
         {
             type: 'operator',
             title: '+',
-            handler: '',
+            handler: input,
         }
     ],
     [
         {
             type: 'func',
             title: 'Rad',
-            handler: '',
+            handler: empty,
         },
         {
             type: 'func',
             title: 'sinh',
-            handler: '',
+            handler: empty,
         },
         {
             type: 'func',
             title: 'cosh',
-            handler: '',
+            handler: empty,
         },
         {
             type: 'func',
             title: 'tanh',
-            handler: '',
+            handler: empty,
         },
         {
             type: 'func',
             title: 'pi',
-            handler: '',
+            handler: empty,
         },
         {
             type: 'func',
             title: 'Rand',
-            handler: '',
+            handler: empty,
         },
         {
             type: 'num x2',
             title: '0',
-            handler: '',
+            handler: input,
         },
         {
             type: 'num',
             title: '.',
-            handler: '',
+            handler: input,
         },
         {
             type: 'operator',
             title: '=',
-            handler: '',
+            handler: equally,
         },
     ]
 ]
 
-
-function render(layout) {
-    const calculator = createCalc(layout);
-    layout.forEach(column => {
-        column.forEach(row => {
-            let tempButt = document.createElement('input');
-            tempButt.setAttribute('type', 'button');
-            tempButt.setAttribute('class', row.type)
-            tempButt.setAttribute('value', row.title)
-            calculator.appendChild(tempButt)
-        })
-    });
-    document.querySelector('body').appendChild(calculator);
-}
-
-function createCalc(layout) {
-    const calculator = document.createElement('div')
-    calculator.setAttribute('id','calculator')
-    calculator.appendChild(createDisplay());
-    calculator.style.width = layout[0].length + '00px';
-    calculator.style.height = layout.length + parseInt(calculator.style.height) + 'px';
-    return calculator;
-}
-
-function createDisplay() {
-    const display = document.createElement('input')
-    display.setAttribute('id', 'display')
-    return display;
-}
-
-render(layoutEng);
+render(layoutBasic)

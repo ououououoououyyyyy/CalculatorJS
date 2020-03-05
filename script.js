@@ -15,7 +15,7 @@
 })
 
 equally.addEventListener("click", function () {
-    display.value = eval(display.value)
+    display.value = eval(display.value);
 });
 
 AC.addEventListener("click", function () {
