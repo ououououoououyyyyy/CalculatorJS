@@ -13,6 +13,7 @@ function render(layout) {
             calculator.appendChild(tempButt);
         })
     });
+    // TODO
     document.querySelector('body').appendChild(calculator);
 }
 
@@ -20,8 +21,10 @@ function createCalc(layout) {
     const calculator = document.createElement('div')
     calculator.setAttribute('id', 'calculator')
     calculator.appendChild(createDisplay());
+    // TODO
     calculator.style.maxWidth = layout[0].length + '00px';
     calculator.style.height = layout.length + parseInt(calculator.style.height) + 'px';
+
     return calculator;
 }
 
@@ -29,6 +32,7 @@ function createDisplay() {
     const display = document.createElement('input');
     display.setAttribute('id', 'display');
     display.readOnly = true;
+    display.value = '0';
     return display;
 }
 
@@ -51,16 +55,19 @@ selectType.addEventListener('click', selectCalc);
 
 function input() {
     if (newResult && this.className.lastIndexOf('operator') == -1) {
-        display.value = ''
+        display.value = '0'
         newResult = false;
     } else {
         newResult = false;
+    }
+    if(display.value == '0'){
+        display.value = '';
     }
     display.value += this.value;
 }
 
 function AC() {
-    display.value = '';
+    display.value = '0';
 }
 
 function plusminus() {
@@ -69,16 +76,9 @@ function plusminus() {
     }
 }
 
-
-function point(){
-    if (display.value.length == 0) {
-        display.value = "0";
-    }
-    display.value = display.value + "."
-}
-
 function equally() {
     try {
+        // TODO
         display.value = eval(display.value);
     } catch (error) {
         console.log("Input wrong equation");
@@ -221,14 +221,14 @@ const layoutBasic = [
         {
             type: 'num',
             title: '.',
-            handler: point,
+            handler: input,
         },
         {
             type: 'operator',
             title: '=',
             handler: equally,
         },
-    ]
+    ],
 ]
 
 const layoutEng = [
@@ -480,7 +480,7 @@ const layoutEng = [
         {
             type: 'num',
             title: '.',
-            handler: point,
+            handler: input,
         },
         {
             type: 'operator',
@@ -488,6 +488,127 @@ const layoutEng = [
             handler: equally,
         },
     ]
+] 
+
+
+const layoutProg = [
+    [
+        {
+            type:'func',
+            title:'AND',
+            handler:empty
+        },
+        {
+            type:'func',
+            title:'OR',
+            handler:empty
+        },
+        {
+            type:'num',
+            title:'D',
+            handler:empty
+        },
+        {
+            type:'num',
+            title:'E',
+            handler:empty
+        },
+        {
+            type:'num',
+            title:'F',
+            handler:empty
+        },
+        {
+            type:'func',
+            title:'AC',
+            handler:empty
+        },
+        {
+            type:'func',
+            title:'C',
+            handler:empty
+        },
+    ],
+    [
+        {
+            type:'func',
+            title:'NOR',
+            handler:empty
+        },
+        {
+            type:'func',
+            title:'XOR',
+            handler:empty
+        },
+        {
+            type:'num',
+            title:'A',
+            handler:empty
+        },
+        {
+            type:'num',
+            title:'B',
+            handler:empty
+        },
+        {
+            type:'num',
+            title:'C',
+            handler:empty
+        },
+        {
+            type:'func',
+            title:'RoL',
+            handler:empty
+        },
+        {
+            type:'func',
+            title:'RoR',
+            handler:empty
+        },
+    ],[
+        {
+            type:'func',
+            title:'<<',
+            handler:empty
+        },
+        {
+            type:'func',
+            title:'>>',
+            handler:empty
+        },
+        {
+            type:'num',
+            title:'7',
+            handler:empty
+        },
+        {
+            type:'num',
+            title:'8',
+            handler:empty
+        },
+        {
+            type:'num',
+            title:'9',
+            handler:empty
+        },
+        {
+            type:'func',
+            title:'2s',
+            handler:empty
+        },
+        {
+            type:'func',
+            title:'1s',
+            handler:empty
+        },
+    ],
 ]
 
-render(layoutBasic)
+const basicCalculator = {
+    name: '',
+    mode: '',
+    layout: [],
+}
+
+
+render(layoutProg)
