@@ -1,9 +1,9 @@
 let newResult = false;
 let memory = '';
 
-function createCalculator(layout) {
-    const calculator = createBodyCalculator(layout);
-    layout.forEach(column => {
+function createCalculator(modelCalc) {
+    let calculator = createBodyCalculator(modelCalc);
+    modelCalc.layout.forEach(column => {
         column.forEach(row => {
             const tempButt = document.createElement('input');
             tempButt.setAttribute('type', 'button');
@@ -13,17 +13,18 @@ function createCalculator(layout) {
             calculator.appendChild(tempButt);
         })
     });
+    calculator = setSettings(modelCalc.settings,calculator);
     return calculator;
 }
 
-function createBodyCalculator(layout) {
+function createBodyCalculator(modelCalc) {
     const boduCalculator = document.createElement('div')
     boduCalculator.setAttribute('id', 'calculator')
     boduCalculator.appendChild(createDisplay());
     // TODO
-    boduCalculator.style.maxWidth = layout[0].length + '00px';
-    boduCalculator.style.width = layout[0].length + '00px';
-    boduCalculator.style.height = layout.length + parseInt(boduCalculator.style.height) + 'px';
+    //boduCalculator.style.maxWidth = modelCalc.width+'px';
+    boduCalculator.style.width = modelCalc.width+'px';
+    boduCalculator.style.height = modelCalc.height+'px';
 
     return boduCalculator;
 }
@@ -36,14 +37,22 @@ function createDisplay() {
     return display;
 }
 
+function setSettings(setting, calculator){
+    setting.forEach(x => {
+        //styleSetting = '1 0 ' + x[1] + 'px'
+        calculator.querySelector('[value=\''+x[0]+'\']').style.flex = x[1];
+    })
+    return calculator;
+}
+
 function selectCalc(e) {
     if (document.querySelector('#calculator') != null) {
         document.querySelector('#calculator').remove();
     }
     if (e.target.id === 'basic') {
-    document.querySelector('body').appendChild(createCalculator(layoutBasic));
+    document.querySelector('body').appendChild(createCalculator(basicCalculator));
     } else if (e.target.id === 'engineer') {
-        document.querySelector('body').appendChild(createCalculator(layoutEng));
+        document.querySelector('body').appendChild(createCalculator(engineerCalculator));
     } else {
         document.querySelector('body').appendChild(createCalculator(layoutProg));
     }
@@ -214,7 +223,7 @@ const layoutBasic = [
     ],
     [
         {
-            type: 'num x2',
+            type: 'num',
             title: '0',
             handler: input,
         },
@@ -605,10 +614,25 @@ const layoutProg = [
 ]
 
 const basicCalculator = {
-    name: '',
+    name: 'Basic',
     mode: '',
-    layout: [],
+    settings:[
+        ['0', '200px'],
+    ],
+    width: 400,
+    height: 635,
+    layout: layoutBasic,
 }
 
+const engineerCalculator = {
+    name: 'Engineer',
+    mode: '',
+    settings:[
+        ['0', '200px'],
+    ],
+    width:1000,
+    height:635,
+    layout: layoutEng,
+}
 
-createCalculator(layoutBasic)
+document.querySelector('body').appendChild(createCalculator(basicCalculator));
