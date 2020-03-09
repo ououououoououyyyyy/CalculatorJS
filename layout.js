@@ -1,8 +1,8 @@
 let newResult = false;
 let memory = '';
 
-function render(layout) {
-    const calculator = createCalc(layout);
+function createCalculator(layout) {
+    const calculator = createBodyCalculator(layout);
     layout.forEach(column => {
         column.forEach(row => {
             const tempButt = document.createElement('input');
@@ -13,19 +13,19 @@ function render(layout) {
             calculator.appendChild(tempButt);
         })
     });
-    // TODO
-    document.querySelector('body').appendChild(calculator);
+    return calculator;
 }
 
-function createCalc(layout) {
-    const calculator = document.createElement('div')
-    calculator.setAttribute('id', 'calculator')
-    calculator.appendChild(createDisplay());
+function createBodyCalculator(layout) {
+    const boduCalculator = document.createElement('div')
+    boduCalculator.setAttribute('id', 'calculator')
+    boduCalculator.appendChild(createDisplay());
     // TODO
-    calculator.style.maxWidth = layout[0].length + '00px';
-    calculator.style.height = layout.length + parseInt(calculator.style.height) + 'px';
+    boduCalculator.style.maxWidth = layout[0].length + '00px';
+    boduCalculator.style.width = layout[0].length + '00px';
+    boduCalculator.style.height = layout.length + parseInt(boduCalculator.style.height) + 'px';
 
-    return calculator;
+    return boduCalculator;
 }
 
 function createDisplay() {
@@ -41,11 +41,11 @@ function selectCalc(e) {
         document.querySelector('#calculator').remove();
     }
     if (e.target.id === 'basic') {
-        render(layoutBasic);
+    document.querySelector('body').appendChild(createCalculator(layoutBasic));
     } else if (e.target.id === 'engineer') {
-        render(layoutEng)
+        document.querySelector('body').appendChild(createCalculator(layoutEng));
     } else {
-
+        document.querySelector('body').appendChild(createCalculator(layoutProg));
     }
 }
 
@@ -611,4 +611,4 @@ const basicCalculator = {
 }
 
 
-render(layoutProg)
+createCalculator(layoutBasic)
