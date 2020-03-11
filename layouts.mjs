@@ -1,135 +1,3 @@
-let newResult = false;
-let memory = '';
-
-function createCalculatorUI(modelCalc) {
-    let calculator = createBodyCalculator(modelCalc);
-    modelCalc.layout.forEach(column => {
-        column.forEach(row => {
-            const tempButt = document.createElement('input');
-            tempButt.setAttribute('type', 'button');
-            tempButt.setAttribute('class', row.type);
-            tempButt.setAttribute('value', row.title);
-            tempButt.addEventListener('click', row.handler);
-            calculator.appendChild(tempButt);
-        })
-    });
-    calculator = setSettings(modelCalc.settings, calculator);
-    return calculator;
-}
-
-function createBodyCalculator(modelCalc) {
-    const boduCalculator = document.createElement('div')
-    boduCalculator.setAttribute('id', 'calculator')
-    boduCalculator.appendChild(createDisplay());
-    boduCalculator.style.maxWidth = modelCalc.width; 
-    boduCalculator.style.height = modelCalc.height;
-
-    return boduCalculator;
-}
-
-function createDisplay() {
-    const display = document.createElement('input');
-    display.setAttribute('id', 'display');
-    display.readOnly = true;
-    display.value = '0';
-    return display;
-}
-
-function setSettings(setting, calculator) {
-    setting.forEach(x => {
-        //styleSetting = '1 0 ' + x[1] + 'px'
-        calculator.querySelector('[value=\'' + x[0] + '\']').style.flex = x[1];
-    })
-    return calculator;
-}
-
-function selectCalc(e) {
-    if (document.querySelector('#calculator') != null) {
-        document.querySelector('#calculator').remove();
-    }
-    if (e.target.id === 'basic') {
-        document.querySelector('body').appendChild(createCalculatorUI(basicCalculator));
-    } else if (e.target.id === 'engineer') {
-        document.querySelector('body').appendChild(createCalculatorUI(engineerCalculator));
-    } else {
-        document.querySelector('body').appendChild(createCalculatorUI(layoutProg));
-    }
-}
-
-selectType.addEventListener('click', selectCalc);
-
-//render(layoutBasic);
-
-function input() {
-    if (newResult && this.className.lastIndexOf('operator') == -1) {
-        display.value = '0'
-        newResult = false;
-    } else {
-        newResult = false;
-    }
-    if (display.value == '0') {
-        display.value = '';
-    }
-    display.value += this.value;
-}
-
-function AC() {
-    display.value = '0';
-}
-
-function plusminus() {
-    if (display.value === "") {
-        display.value = "-"
-    }
-}
-
-function equally() {
-    try {
-        // TODO
-        display.value = Solver.solve(display.value);
-    } catch (error) {
-        console.log("Input wrong equation");
-        error.mess
-    } finally {
-        newResult = true;
-    }
-}
-
-function percent() {
-    equally()
-    display.value = display.value / 100;
-}
-
-function mc() {
-    memory = "";
-}
-
-function mplus() {
-    if (memory.length == 0) {
-        memory = display.value;
-    } else {
-        equally();
-        memory = (+display.value + +memory).toString();
-    }
-}
-
-function mminus() {
-    if (memory.length == 0) {
-        memory = display.value;
-    } else {
-        equally();
-        memory = (+display.value - +memory).toString();
-    }
-}
-
-function mr() {
-    display.value = memory;
-}
-
-function empty() {
-
-}
-
 const layoutBasic = [
     [
         {
@@ -612,7 +480,7 @@ const layoutProg = [
     ],
 ]
 
-const basicCalculator = {
+export const basicCalculator = {
     name: 'Basic',
     mode: '',
     settings: [
@@ -623,7 +491,7 @@ const basicCalculator = {
     layout: layoutBasic,
 }
 
-const engineerCalculator = {
+export const engineerCalculator = {
     name: 'Engineer',
     mode: '',
     settings: [
@@ -635,9 +503,76 @@ const engineerCalculator = {
 }
 
 
-document.querySelector('body').appendChild(createCalculatorUI(basicCalculator));
+let newResult = false;
+let memory = '';
 
+function input() {
+    if (newResult && this.className.lastIndexOf('operator') == -1) {
+        display.value = '0'
+        newResult = false;
+    } else {
+        newResult = false;
+    }
+    if (display.value == '0') {
+        display.value = '';
+    }
+    display.value += this.value;
+}
 
+function AC() {
+    display.value = '0';
+}
+
+function plusminus() {
+    if (display.value === "") {
+        display.value = "-"
+    }
+}
+
+function equally() {
+    try {
+        display.value = Solver.solve(display.value);
+    } catch (error) {
+        console.log("Input wrong equation");
+        error.mess
+    } finally {
+        newResult = true;
+    }
+}
+
+function percent() {
+    equally()
+    display.value = display.value / 100;
+}
+
+function mc() {
+    memory = "";
+}
+
+function mplus() {
+    if (memory.length == 0) {
+        memory = display.value;
+    } else {
+        equally();
+        memory = (+display.value + +memory).toString();
+    }
+}
+
+function mminus() {
+    if (memory.length == 0) {
+        memory = display.value;
+    } else {
+        equally();
+        memory = (+display.value - +memory).toString();
+    }
+}
+
+function mr() {
+    display.value = memory;
+}
+
+function empty() {
+}
 
 const Solver = {
     parseString(eq) {
@@ -697,7 +632,7 @@ const Solver = {
         let operator;
         let operators = [];
         let outputNum = [];
-    
+
         for (var i = 0; i < arr.length; i++) {
             value = arr[i];
             switch (value) {
@@ -749,7 +684,7 @@ const Solver = {
         while (operators.length) {
             outputNum.push(operators.pop());
         }
-    
+
         return outputNum;
     },
     SolveRPN(rpn) {
@@ -757,7 +692,7 @@ const Solver = {
         let v1, v2;
         let value;
         let values = [];
-    
+
         for (var i = 0; i < rpn.length; i++) {
             value = rpn[i];
             switch (value) {
@@ -787,8 +722,7 @@ const Solver = {
         }
         return values[0];
     },
-    solve(eq){
+    solve(eq) {
         return this.SolveRPN(this.getReversePolishNotation(this.parseString(eq)));
     }
 }
-
