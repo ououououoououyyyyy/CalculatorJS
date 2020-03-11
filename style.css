@@ -6,18 +6,7 @@
     background-color: #393939;
 }
 
-#calculator{
-    display: flex;
-    flex-flow: row wrap;
-    width: 400px;
-    height: 635px;
-    border: 1px solid red;
-    margin-right: auto;
-    margin-left: auto;
-}
-
 #display{
-    order: 1;
     flex: 1 0 100%;
     height: auto;
     font-size: 30px;
@@ -28,61 +17,29 @@
     color: #e7e7e7;
 }
 
-
+#calculator{
+    display: flex;
+    flex-flow: row wrap;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 input[type=button]{
     width: 100px;
     height: 100px;
-    font-size: 20px;
-    border: none;
-    color: #e7e7e7;  
+    font-size: 25px;
+    color: white;  
     border: 0.5px solid #242424;
 }
 
-#buttonsBasic{
-    width: 400px;
-    order: 3;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-#buttonsEngineer{
-    width: 600px;
-    order: 2;
-    display: none;
-    flex-wrap: wrap;
-}
-
-#buttonsProg{
-    order: 4;
-    display: none;
-    flex-wrap: wrap;
-}
-
-#zero{
-    flex-grow: 1;
-}
-
-.byteflip{
-    flex-basis: 200px;
-}
-
-.wordflip{
-    flex-basis: 200px;
-}
-
-.equallyProg{
-    flex-basis: 200px;
-}
-
-.darkGrey{
+.func{
     background-color: #393939;
 }
 
-.yellow{
+.operator{
     background-color: #ff9f0c;
 }
 
-.grey{
+.num{
     background-color: #5a5a5a;
 }
